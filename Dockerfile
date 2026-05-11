@@ -1,3 +1,7 @@
-FROM n8nio/n8n
+FROM docker.n8n.io/n8nio/n8n:latest
 
-EXPOSE 5678
+# Ensure we use the correct user
+USER root
+
+# Explicitly set the entrypoint to the n8n executable path
+ENTRYPOINT ["node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
